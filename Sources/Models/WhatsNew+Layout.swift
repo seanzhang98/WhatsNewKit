@@ -75,7 +75,7 @@ public extension WhatsNew {
             featureHorizontalSpacing: CGFloat = 15,
             featureHorizontalAlignment: VerticalAlignment = .center,
             featureVerticalSpacing: CGFloat = 2,
-            footerActionSpacing: CGFloat = 15,
+            footerActionSpacing: CGFloat = 0,
             footerPrimaryActionButtonCornerRadius: CGFloat = 14,
             footerVisualEffectViewPadding: EdgeInsets = .init(top: -10, leading: 0, bottom: 0, trailing: 0)
         ) {
