@@ -70,7 +70,7 @@ public extension WhatsNew {
             contentSpacing: CGFloat = 60,
             contentPadding: EdgeInsets = .init(top: 65, leading: 0, bottom: 0, trailing: 0),
             featureListSpacing: CGFloat = 25,
-            featureListPadding: EdgeInsets = .init(top: 0, leading: 15, bottom: 0, trailing: 0),
+            featureListPadding: EdgeInsets = .init(top: 0, leading: 15, bottom: 0, trailing: 15),
             featureImageWidth: CGFloat = 40,
             featureHorizontalSpacing: CGFloat = 15,
             featureHorizontalAlignment: VerticalAlignment = .center,
