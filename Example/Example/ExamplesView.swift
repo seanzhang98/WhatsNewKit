@@ -118,6 +118,7 @@ private extension WhatsNew.Example {
                     )
                 ],
                 primaryAction: .init(
+                    title: "TEST",
                     backgroundColor: .red
                 )
             )

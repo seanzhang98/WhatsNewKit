@@ -56,7 +56,7 @@ extension WhatsNewView.FooterPadding: ViewModifier {
                 .init(
                     top: 0,
                     leading: 20,
-                    bottom: 80,
+                    bottom: 60,
                     trailing: 20
                 )
             )

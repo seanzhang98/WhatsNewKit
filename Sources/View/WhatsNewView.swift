@@ -204,7 +204,7 @@ private extension WhatsNewView {
                     Text(
                         whatsNewText: secondaryAction.title
                     )
-                }
+                }.padding(.bottom, 10)
                 #if os(macOS)
                 .buttonStyle(
                     PlainButtonStyle()
