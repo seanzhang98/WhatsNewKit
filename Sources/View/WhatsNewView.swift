@@ -206,56 +206,77 @@ private extension WhatsNewView {
             spacing: self.layout.footerActionSpacing
         ) {
             // Check if a secondary action is available
-            if let secondaryAction = self.whatsNew.secondaryAction {
-                // Secondary Action Button
-                Button(
-                    action: {
-                        // Invoke HapticFeedback, if available
-                        secondaryAction.hapticFeedback?()
-                        // Switch on Action
-                        switch secondaryAction.action {
-                        case .present(let view):
-                            // Set secondary action presented view
-                            self.secondaryActionPresentedView = .init(view: view)
-                        case .custom(let action):
-                            // Invoke action with PresentationMode
-                            action(self.presentationMode)
-                        }
-                    }
-                ) {
-                    Text(
-                        whatsNewText: secondaryAction.title
-                    )
-                }.padding(.bottom, 10)
-                #if os(macOS)
-                .buttonStyle(
-                    PlainButtonStyle()
-                )
-                #endif
-                .foregroundColor(secondaryAction.foregroundColor)
-            }
-            Image("icon_dataprivacy_2x")
+            ZStack{
+                if let secondaryAction = self.whatsNew.secondaryAction {
+                    // Secondary Action Button
+                    /* Button(
+                     action: {
+                     // Invoke HapticFeedback, if available
+                     secondaryAction.hapticFeedback?()
+                     // Switch on Action
+                     switch secondaryAction.action {
+                     case .present(let view):
+                     // Set secondary action presented view
+                     self.secondaryActionPresentedView = .init(view: view)
+                     case .custom(let action):
+                     // Invoke action with PresentationMode
+                     action(self.presentationMode)
+                     }
+                     }
+                     ) {
+                     Text(
+                     whatsNewText: secondaryAction.title
+                     )
+                     }.padding(.bottom, 10)
+                     #if os(macOS)
+                     .buttonStyle(
+                     PlainButtonStyle()
+                     )
+                     #endif
+                     .foregroundColor(secondaryAction.foregroundColor)
+                     .zIndex(1)*/
+                    VStack{
+                        Image("icon_dataprivacy_2x")
                             .resizable()
                             .scaledToFit()
-                            .colorMultiply(Color(hex: 0xf5855D6).opacity(0.8))
-                            .foregroundColor(Color(hex: 0xf5855D6))
+                            .colorMultiply(secondaryAction.foregroundColor.opacity(0.8))
+                            //.foregroundColor(secondaryAction.foregroundColor)
                             .frame(width: 32, height: 32)
                         Group {
                             if Locale.current.languageCode == "zh" {
-                                Text("Camerapedia 会收集用于改进和个性化应用程序且无法辨认您 Apple ID 的活动信息。具体数据收集与管理请参阅隐私政策页面。")
-                                    .foregroundColor(.secondary)/* +
-                                                                 Text("See how your data is managed...")
-                                                                 .foregroundColor(.purple)
-                                                                 .bold()*/
+                                Text("Camerapedia 会收集用于改进和个性化应用程序且无法辨认您 Apple ID 的活动信息。")
+                                    .foregroundColor(.secondary) +
+                                 Text("了解您的数据是如何管理的...")
+                                    .foregroundColor(secondaryAction.foregroundColor)
+                                 .bold()
                             } else {
                                 Text("Camerapedia collects your activity, which is not associated with your Apple ID, in order to improve and personalize the application. ")
-                                    .foregroundColor(.secondary)
+                                    .foregroundColor(.secondary) +
+                                Text("See how your data is managed...")
+                                .foregroundColor(secondaryAction.foregroundColor)
+                                .bold()
                             }
                         }
                         .multilineTextAlignment(.center)
                         .font(.system(size: 10))
                         .padding(.bottom, 10)
-                        .padding(.top, 5)
+                        //.padding(.top, 5)
+                        .onTapGesture {
+                            // Invoke HapticFeedback, if available
+                            secondaryAction.hapticFeedback?()
+                            // Switch on Action
+                            switch secondaryAction.action {
+                            case .present(let view):
+                                // Set secondary action presented view
+                                self.secondaryActionPresentedView = .init(view: view)
+                            case .custom(let action):
+                                // Invoke action with PresentationMode
+                                action(self.presentationMode)
+                            }
+                        }
+                    }.zIndex(0)
+                }
+            }
             // Primary Action Button
             Button(
                 action: {

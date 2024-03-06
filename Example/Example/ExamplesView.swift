@@ -200,7 +200,7 @@ private extension WhatsNew.Example {
                 ),
                 secondaryAction: .init(
                     title: "About Translation & Privacy",
-                    foregroundColor: .cyan,
+                    foregroundColor: .clear,
                     action: .openURL(
                         .init(string: "https://apple.com/privacy")
                     )
