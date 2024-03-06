@@ -92,23 +92,25 @@ extension WhatsNewView: View {
             // Footer
             VStack {
                 Spacer()
-                Image(systemName: "person.and.background.dotted")
-                    .symbolRenderingMode(.hierarchical)
-                                .resizable()
-                                .scaledToFit()
-                                .foregroundColor(Color(hex: 0xf5855D6))
-                                .frame(width: 32, height: 32)
-                            Group {
-                                Text("Camerapedia collects your activity, which is not associated with your Apple ID, in order to improve and personalize the application. ")
-                                    .foregroundColor(.secondary)/* +
-                                Text("See how your data is managed...")
-                                    .foregroundColor(.purple)
-                                    .bold()*/
-                            }
-                            .multilineTextAlignment(.center)
-                            .font(.system(size: 10))
-                            .padding(.bottom, 10)
-                            .padding(.top, 4)
+                VStack{
+                    Image(systemName: "person.and.background.dotted")
+                        .symbolRenderingMode(.hierarchical)
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(Color(hex: 0xf5855D6))
+                        .frame(width: 32, height: 32)
+                    Group {
+                        Text("Camerapedia collects your activity, which is not associated with your Apple ID, in order to improve and personalize the application. ")
+                            .foregroundColor(.secondary)/* +
+                                                         Text("See how your data is managed...")
+                                                         .foregroundColor(.purple)
+                                                         .bold()*/
+                    }
+                    .multilineTextAlignment(.center)
+                    .font(.system(size: 10))
+                    .padding(.bottom, 10)
+                    .padding(.top, 4)
+                }
                 self.footer
                     .modifier(FooterPadding())
                     #if os(iOS)
@@ -230,7 +232,7 @@ private extension WhatsNewView {
                 )
                 #endif
                 .foregroundColor(secondaryAction.foregroundColor)
-            }
+            }/*
             Image(systemName: "person.and.background.dotted")
                 .symbolRenderingMode(.hierarchical)
                             .resizable()
@@ -248,6 +250,7 @@ private extension WhatsNewView {
                         .font(.system(size: 10))
                         .padding(.bottom, 10)
                         .padding(.top, 4)
+              */
             // Primary Action Button
             Button(
                 action: {
