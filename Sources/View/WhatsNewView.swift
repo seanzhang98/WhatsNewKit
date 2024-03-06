@@ -244,7 +244,7 @@ private extension WhatsNewView {
                             .frame(width: 32, height: 32)
                         Group {
                             if Locale.current.languageCode == "zh" {
-                                Text("Camerapedia 会收集用于改进和个性化应用程序且无法辨认您 Apple ID 的活动信息。")
+                                Text("Camerapedia 会收集用于改进和个性化应用程序的活动信息。这些信息将无法辨认您和您的 Apple ID。")
                                     .foregroundColor(.secondary) +
                                  Text("了解您的数据是如何管理的...")
                                     .foregroundColor(secondaryAction.foregroundColor)
