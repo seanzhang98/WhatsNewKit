@@ -237,7 +237,7 @@ private extension WhatsNewView {
             Image("icon_dataprivacy_2x")
                             .resizable()
                             .scaledToFit()
-                            .colorMultiply(Color(hex: 0xf5855D6))
+                            .colorMultiply(Color(hex: 0xf5855D6).opacity(0.8))
                             .foregroundColor(Color(hex: 0xf5855D6))
                             .frame(width: 32, height: 32)
                         Group {
