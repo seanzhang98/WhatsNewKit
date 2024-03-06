@@ -92,6 +92,7 @@ extension WhatsNewView: View {
             // Footer
             VStack {
                 Spacer()
+                /*
                 VStack{
                     Image(systemName: "person.and.background.dotted")
                         .symbolRenderingMode(.hierarchical)
@@ -110,7 +111,7 @@ extension WhatsNewView: View {
                     .font(.system(size: 10))
                     .padding(.bottom, 10)
                     .padding(.top, 4)
-                }
+                }*/
                 self.footer
                     .modifier(FooterPadding())
                     #if os(iOS)
@@ -232,25 +233,29 @@ private extension WhatsNewView {
                 )
                 #endif
                 .foregroundColor(secondaryAction.foregroundColor)
-            }/*
-            Image(systemName: "person.and.background.dotted")
-                .symbolRenderingMode(.hierarchical)
+            }
+            Image("icon_dataprivacy_2x")
                             .resizable()
                             .scaledToFit()
+                            .colorMultiply(Color(hex: 0xf5855D6))
                             .foregroundColor(Color(hex: 0xf5855D6))
                             .frame(width: 32, height: 32)
                         Group {
-                            Text("Camerapedia collects your activity, which is not associated with your Apple ID, in order to improve and personalize the application. ")
-                                .foregroundColor(.secondary)/* +
-                            Text("See how your data is managed...")
-                                .foregroundColor(.purple)
-                                .bold()*/
+                            if Locale.current.languageCode == "zh" {
+                                Text("Camerapedia 会收集用于改进和个性化应用程序且无法辨认您 Apple ID 的活动信息。具体请参阅隐私政策页面。")
+                                    .foregroundColor(.secondary)/* +
+                                                                 Text("See how your data is managed...")
+                                                                 .foregroundColor(.purple)
+                                                                 .bold()*/
+                            } else {
+                                Text("Camerapedia collects your activity, which is not associated with your Apple ID, in order to improve and personalize the application. ")
+                                    .foregroundColor(.secondary)
+                            }
                         }
                         .multilineTextAlignment(.center)
                         .font(.system(size: 10))
                         .padding(.bottom, 10)
                         .padding(.top, 4)
-              */
             // Primary Action Button
             Button(
                 action: {
