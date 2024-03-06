@@ -45,6 +45,7 @@ public struct WhatsNewView {
 
 // MARK: - View
 
+@available(iOS 15.0, *)
 extension WhatsNewView: View {
     
     /// The content and behavior of the view.
@@ -176,6 +177,7 @@ private extension WhatsNewView {
 
 // MARK: - Footer
 
+@available(iOS 15.0, *)
 private extension WhatsNewView {
     
     /// The Footer View
@@ -212,6 +214,23 @@ private extension WhatsNewView {
                 #endif
                 .foregroundColor(secondaryAction.foregroundColor)
             }
+            Image(systemName: "person.and.background.dotted")
+                .symbolRenderingMode(.hierarchical)
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(Color(hex: 0xf5855D6))
+                            .frame(width: 32, height: 32)
+                        Group {
+                            Text("Camerapedia collects your activity, which is not associated with your Apple ID, in order to improve and personalize the application. ")
+                                .foregroundColor(.secondary)/* +
+                            Text("See how your data is managed...")
+                                .foregroundColor(.purple)
+                                .bold()*/
+                        }
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 10))
+                        .padding(.bottom, 10)
+                        .padding(.top, 4)
             // Primary Action Button
             Button(
                 action: {
@@ -239,4 +258,16 @@ private extension WhatsNewView {
         }
     }
     
+}
+
+extension Color {
+    init(hex: Int, opacity: Double = 1) {
+        self.init(
+            .sRGB,
+            red: Double((hex >> 16) & 0xff) / 255,
+            green: Double((hex >> 08) & 0xff) / 255,
+            blue: Double((hex >> 00) & 0xff) / 255,
+            opacity: opacity
+        )
+    }
 }
