@@ -128,7 +128,7 @@ extension WhatsNewView: View {
         .sheet(
             item: self.$secondaryActionPresentedView,
             content: { $0.view }
-        )
+        ).interactiveDismissDisabled(true)
         .onDisappear {
             // Save presented WhatsNew Version, if available
             self.whatsNewVersionStore?.save(
@@ -244,13 +244,13 @@ private extension WhatsNewView {
                             .frame(width: 32, height: 32)
                         Group {
                             if Locale.current.languageCode == "zh" {
-                                Text("Camerapedia 会收集用于改进和个性化应用程序的活动信息。这些信息将无法辨认您和您的 Apple ID。")
+                                Text("Camerapedia 将收集您的活动信息以优化应用程序。这些信息将被匿名处理，无法与您的 Apple ID 关联。您选择使用本应用即表示您同意我们的隐私政策。")
                                     .foregroundColor(.secondary) +
                                  Text("了解您的数据是如何管理的...")
                                     .foregroundColor(secondaryAction.foregroundColor)
                                  .bold()
                             } else {
-                                Text("Camerapedia collects your activity, which is not associated with your Apple ID, in order to improve and personalize the application. ")
+                                Text("Camerapedia collects your activity, which is not associated with your Apple ID, in order to improve and personalize the application. To use this App indicates that you agree to our privacy policy.")
                                     .foregroundColor(.secondary) +
                                 Text("See how your data is managed...")
                                 .foregroundColor(secondaryAction.foregroundColor)
