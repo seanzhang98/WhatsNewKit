@@ -242,7 +242,7 @@ private extension WhatsNewView {
                             .frame(width: 32, height: 32)
                         Group {
                             if Locale.current.languageCode == "zh" {
-                                Text("Camerapedia 会收集用于改进和个性化应用程序且无法辨认您 Apple ID 的活动信息。具体请参阅隐私政策页面。")
+                                Text("Camerapedia 会收集用于改进和个性化应用程序且无法辨认您 Apple ID 的活动信息。具体数据收集与管理请参阅隐私政策页面。")
                                     .foregroundColor(.secondary)/* +
                                                                  Text("See how your data is managed...")
                                                                  .foregroundColor(.purple)
@@ -255,7 +255,7 @@ private extension WhatsNewView {
                         .multilineTextAlignment(.center)
                         .font(.system(size: 10))
                         .padding(.bottom, 10)
-                        .padding(.top, 4)
+                        .padding(.top, 5)
             // Primary Action Button
             Button(
                 action: {
