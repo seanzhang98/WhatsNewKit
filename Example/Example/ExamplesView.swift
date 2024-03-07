@@ -144,6 +144,22 @@ private extension WhatsNew.Example {
                     ),
                     .init(
                         image: .init(
+                            systemName: "mappin.and.ellipse",
+                            foregroundColor: .pink
+                        ),
+                        title: "All-New Place Cards",
+                        subtitle: "Completely redesigned place cards make it easier to learn about and interact with places."
+                    ),
+                    .init(
+                        image: .init(
+                            systemName: "mappin.and.ellipse",
+                            foregroundColor: .pink
+                        ),
+                        title: "All-New Place Cards",
+                        subtitle: "Completely redesigned place cards make it easier to learn about and interact with places."
+                    ),
+                    .init(
+                        image: .init(
                             systemName: "magnifyingglass",
                             foregroundColor: .blue
                         ),

@@ -206,76 +206,74 @@ private extension WhatsNewView {
             spacing: self.layout.footerActionSpacing
         ) {
             // Check if a secondary action is available
-            ZStack{
-                if let secondaryAction = self.whatsNew.secondaryAction {
-                    // Secondary Action Button
-                    /* Button(
-                     action: {
-                     // Invoke HapticFeedback, if available
-                     secondaryAction.hapticFeedback?()
-                     // Switch on Action
-                     switch secondaryAction.action {
-                     case .present(let view):
-                     // Set secondary action presented view
-                     self.secondaryActionPresentedView = .init(view: view)
-                     case .custom(let action):
-                     // Invoke action with PresentationMode
-                     action(self.presentationMode)
-                     }
-                     }
-                     ) {
-                     Text(
-                     whatsNewText: secondaryAction.title
-                     )
-                     }.padding(.bottom, 10)
-                     #if os(macOS)
-                     .buttonStyle(
-                     PlainButtonStyle()
-                     )
-                     #endif
-                     .foregroundColor(secondaryAction.foregroundColor)
-                     .zIndex(1)*/
-                    VStack{
-                        Image("icon_dataprivacy_2x")
-                            .resizable()
-                            .scaledToFit()
-                            .colorMultiply(secondaryAction.foregroundColor.opacity(0.8))
-                            //.foregroundColor(secondaryAction.foregroundColor)
-                            .frame(width: 32, height: 32)
-                        Group {
-                            if Locale.current.languageCode == "zh" {
-                                Text("Camerapedia 将收集您的活动信息以优化应用程序。这些信息将被匿名处理，无法与您的 Apple ID 关联。您选择使用本应用即表示您同意我们的隐私政策。")
-                                    .foregroundColor(.secondary) +
-                                 Text("了解您的数据是如何管理的...")
-                                    .foregroundColor(secondaryAction.foregroundColor)
-                                 .bold()
-                            } else {
-                                Text("Camerapedia collects your activity, which is not associated with your Apple ID, in order to improve and personalize the application. To use this App indicates that you agree to our privacy policy.")
-                                    .foregroundColor(.secondary) +
-                                Text("See how your data is managed...")
+            if let secondaryAction = self.whatsNew.secondaryAction {
+                // Secondary Action Button
+                /* Button(
+                 action: {
+                 // Invoke HapticFeedback, if available
+                 secondaryAction.hapticFeedback?()
+                 // Switch on Action
+                 switch secondaryAction.action {
+                 case .present(let view):
+                 // Set secondary action presented view
+                 self.secondaryActionPresentedView = .init(view: view)
+                 case .custom(let action):
+                 // Invoke action with PresentationMode
+                 action(self.presentationMode)
+                 }
+                 }
+                 ) {
+                 Text(
+                 whatsNewText: secondaryAction.title
+                 )
+                 }.padding(.bottom, 10)
+                 #if os(macOS)
+                 .buttonStyle(
+                 PlainButtonStyle()
+                 )
+                 #endif
+                 .foregroundColor(secondaryAction.foregroundColor)
+                 .zIndex(1)*/
+                VStack{
+                    Image("icon_dataprivacy_2x")
+                        .resizable()
+                        .scaledToFit()
+                        .colorMultiply(secondaryAction.foregroundColor.opacity(0.8))
+                    //.foregroundColor(secondaryAction.foregroundColor)
+                        .frame(width: 32, height: 32)
+                    Group {
+                        if Locale.current.languageCode == "zh" {
+                            Text("Camerapedia 将收集您的活动信息以优化应用程序。这些信息将被匿名处理，无法与您的 Apple ID 关联。您选择使用本应用即表示您同意我们的隐私政策。")
+                                .foregroundColor(.secondary) +
+                            Text("了解您的数据是如何管理的...")
                                 .foregroundColor(secondaryAction.foregroundColor)
                                 .bold()
-                            }
+                        } else {
+                            Text("Camerapedia collects your activity, which is not associated with your Apple ID, in order to improve and personalize the application. To use this App indicates that you agree to our privacy policy.")
+                                .foregroundColor(.secondary) +
+                            Text("See how your data is managed...")
+                                .foregroundColor(secondaryAction.foregroundColor)
+                                .bold()
                         }
-                        .multilineTextAlignment(.center)
-                        .font(.system(size: 10))
-                        .padding(.bottom, 10)
-                        //.padding(.top, 5)
-                        .onTapGesture {
-                            // Invoke HapticFeedback, if available
-                            secondaryAction.hapticFeedback?()
-                            // Switch on Action
-                            switch secondaryAction.action {
-                            case .present(let view):
-                                // Set secondary action presented view
-                                self.secondaryActionPresentedView = .init(view: view)
-                            case .custom(let action):
-                                // Invoke action with PresentationMode
-                                action(self.presentationMode)
-                            }
+                    }
+                    .multilineTextAlignment(.center)
+                    .font(.system(size: 10))
+                    .padding(.bottom, 10)
+                    //.padding(.top, 5)
+                    .onTapGesture {
+                        // Invoke HapticFeedback, if available
+                        secondaryAction.hapticFeedback?()
+                        // Switch on Action
+                        switch secondaryAction.action {
+                        case .present(let view):
+                            // Set secondary action presented view
+                            self.secondaryActionPresentedView = .init(view: view)
+                        case .custom(let action):
+                            // Invoke action with PresentationMode
+                            action(self.presentationMode)
                         }
-                    }.zIndex(0)
-                }
+                    }
+                }.zIndex(0)
             }
             // Primary Action Button
             Button(
